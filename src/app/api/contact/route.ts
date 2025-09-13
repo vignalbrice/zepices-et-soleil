@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     const subject = `Nouvelle demande de devis — ${name} (${eventType || "Événement"})`;
 
     const { data, error } = await resend.emails.send({
-      from: 'Zépices & Soleil <contact@zepices-soleil.fr>', // change to your verified domain later
+      from: 'Zépices & Soleil <contact@zepices-et-soleil.fr>', // change to your verified domain later
       to: [process.env.NEXT_PUBLIC_EMAIL_ADDRESS!],
       subject,
       react: EmailTemplate({ name, email, phone, eventType, date, message }),
