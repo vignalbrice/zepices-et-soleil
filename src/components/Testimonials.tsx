@@ -24,7 +24,7 @@ const Testimonials = () => {
   const mainTestimonial = useMemo(() => testimonials[0], []);
 
   return (
-    <section className="mt-10 bg-[#FF7A1A]">
+    <section className="mt-10 bg-[#FF7A1A]" id="testimonials">
       <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-[1.2fr,1fr] gap-8 items-center">
         <div className="text-white">
           <Quote className="opacity-70" />
@@ -32,13 +32,6 @@ const Testimonials = () => {
             “{mainTestimonial.text}”
           </p>
           <div className="mt-5 flex items-center gap-3">
-            <Image
-              src={mainTestimonial.img}
-              alt={mainTestimonial.name}
-              width={40}
-              height={40}
-              className="rounded-full object-cover"
-            />
             <div>
               <div className="text-sm font-semibold">
                 {mainTestimonial.name}

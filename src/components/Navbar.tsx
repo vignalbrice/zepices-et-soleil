@@ -22,7 +22,10 @@ const Navbar: FC = () => {
           <a className="hover:text-[#f99e1a]/70 transition" href="#prestations">
             Prestations
           </a>
-          <a className="hover:text-[#f99e1a]/70 transition" href="#galerie">
+          <a
+            className="hover:text-[#f99e1a]/70 transition"
+            href="#testimonials"
+          >
             Réalisations
           </a>
           <a className="hover:text-[#f99e1a]/70 transition" href="#contact">
@@ -57,7 +60,7 @@ const Navbar: FC = () => {
             <a onClick={() => setOpen(false)} href="#prestations">
               Prestations
             </a>
-            <a onClick={() => setOpen(false)} href="#galerie">
+            <a onClick={() => setOpen(false)} href="#testimonials">
               Réalisations
             </a>
             <a onClick={() => setOpen(false)} href="#contact">
