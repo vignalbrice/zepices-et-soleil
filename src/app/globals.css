@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +28,74 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- Fond "madras" (plaid créole) --- */
+.bg-madras {
+  /* Couleurs d'inspiration madras (épice, soleil, palmier, hibiscus, océan) */
+  --madras-yellow: #fcd65d;
+  --madras-orange: #f99e1a;
+  --madras-red: #e43d2f;
+  --madras-green: #2f8f6b;
+  --madras-blue: #3b7bdc;
+  --orange: #ef7d21;
+
+  /* Superposition de rayures horizontales/verticales + un dégradé chaud */
+  background-image:
+    /* bandes rouges horizontales */ repeating-linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--madras-red) 60%, transparent) 0 4px,
+      transparent 4px 28px
+    ),
+    /* fines bandes bleues horizontales */
+      repeating-linear-gradient(
+        0deg,
+        color-mix(in srgb, var(--madras-blue) 55%, transparent) 0 2px,
+        transparent 2px 18px
+      ),
+    /* bandes vertes verticales */
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--madras-green) 55%, transparent) 0 3px,
+        transparent 3px 22px
+      ),
+    /* larges bandes orange verticales */
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--madras-orange) 45%, transparent) 0 5px,
+        transparent 5px 30px
+      ),
+    /* base ensoleillée */
+      linear-gradient(
+        135deg,
+        #ffe28a 0%,
+        #ffd166 35%,
+        #ffb347 65%,
+        #ffd166 100%
+      );
+  background-blend-mode: multiply, multiply, multiply, multiply, normal;
+}
+
+/* Adoucir avec un voile pour la lisibilité du texte (à poser par-dessus) */
+.madras-overlay {
+  background: radial-gradient(
+    1200px 800px at 20% 10%,
+    #fff7e6b3,
+    #fff5dd88 35%,
+    #fff2d266 55%,
+    #fff0cc55 75%,
+    #fff0cc33 100%
+  );
+}
+.text-orange {
+  color: var(--madras-orange);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+/* Petites utilitaires */
+.text-shadow-2xs {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
