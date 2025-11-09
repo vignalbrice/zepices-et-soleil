@@ -2,11 +2,64 @@ import { EMAIL_ADDRESS, PHONE_NUMBER, WHATSAPP_LINK } from "@/app/constants";
 import { Instagram, Mail, PhoneCall } from "lucide-react";
 import React from "react";
 
+const ldJson = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Zépices & Soleil",
+    telephone: PHONE_NUMBER,
+    email: EMAIL_ADDRESS,
+    logo: "/banner.png",
+    sameAs: ["https://www.instagram.com/zepices.soleil"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WPFooter",
+    name: "Pied de page - Zépices & Soleil",
+    about: "Navigation et contacts du site",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: { "@id": "#hero", name: "Accueil" },
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: { "@id": "#prestations", name: "Prestations" },
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          item: { "@id": "#galerie", name: "Réalisations" },
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          item: { "@id": "#contact", name: "Contact" },
+        },
+      ],
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: PHONE_NUMBER,
+      contactType: "customer service",
+      email: EMAIL_ADDRESS,
+    },
+  },
+]);
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
     <footer id="contact" className="border-t border-black/5">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ldJson }}
+      />
       <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8 text-[13px]">
         <div>
           <div className="flex items-center gap-2">

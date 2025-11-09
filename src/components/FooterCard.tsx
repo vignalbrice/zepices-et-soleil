@@ -1,8 +1,22 @@
 import React, { FC } from "react";
+import { PHONE_NUMBER } from "@/app/constants";
 
 const FooterCard: FC = () => {
+  const ldJson = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Zépices & Soleil",
+    telephone: PHONE_NUMBER,
+    logo: "/banner.png",
+    description:
+      "Traiteur événements, mariages et fêtes privées — cuisine Caraïbe pleine de soleil.",
+  });
   return (
     <section id="book" className="py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ldJson }}
+      />
       <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-black/10 shadow px-6 py-8 text-center">
         <div className="mx-auto h-8 w-8 rounded-full bg-[#f99e1a] text-white grid place-items-center font-bold">
           Z

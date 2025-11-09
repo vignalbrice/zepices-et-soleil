@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION } from "@/app/constants";
@@ -6,6 +8,33 @@ import Image from "next/image";
 const Prestations: FC = () => {
   return (
     <section id="prestations" className="max-w-6xl mx-auto px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            name: "Prestations - Zépices & Soleil",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "Mariage" },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "Anniversaire" },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Événements d’entreprise & privés",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <h4 className="text-center text-[13px] mb-6 text-emerald-900">
         Nous sommes là pour vous
       </h4>

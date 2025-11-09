@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { Resend } from 'resend';
-import { EmailTemplate } from '@/components/template/email-template';
+import { EmailTemplate, EmailTemplateProps } from '@/components/template/email-template';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     if (body.website) return Response.json({ ok: true }); // honeypot
 
-    const { name, email, phone, eventType, date, message } = body;
+    const { name, email, phone, eventType, date, message } = body as EmailTemplateProps;
     const subject = `Nouvelle demande de devis — ${name} (${eventType || "Événement"})`;
 
     const { data, error } = await resend.emails.send({

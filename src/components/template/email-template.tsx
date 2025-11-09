@@ -101,3 +101,21 @@ export function EmailTemplate({
     </Html>
   );
 }
+
+// Export a minimal JSON-LD example for the email content (useful for reference)
+export const emailMessageLd = (props: {
+  name: string;
+  email: string;
+  message: string;
+}) =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "EmailMessage",
+    potentialAction: {
+      "@type": "ViewAction",
+      target: "https://zepices-soleil.fr/contact",
+      name: `Demande de devis de ${props.name}`,
+    },
+    description: props.message,
+    sender: { "@type": "Person", name: props.name, email: props.email },
+  });

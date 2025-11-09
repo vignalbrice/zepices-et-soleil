@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -11,22 +10,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "Zépices & Soleil - Traiteur événements, mariages & Caraïbes",
-  description:
-    "Cuisine créole pleine de soleil pour vos événements, mariages et fêtes privées. Demandez un devis rapide !",
-  icons: {
-    icon: "/icons.ico",
-  },
-  openGraph: {
-    title: "Zépices & Soleil - Traiteur événements, mariages & Caraïbes",
-    description:
-      "Cuisine créole pleine de soleil pour vos événements, mariages et fêtes privées. Demandez un devis rapide !",
-    url: "https://zepices-soleil.fr",
-    siteName: "Zépices & Soleil",
-  },
-};
 
 export default function RootLayout({
   children,

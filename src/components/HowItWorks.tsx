@@ -5,6 +5,21 @@ import React, { FC } from "react";
 const HowItWorks: FC = () => {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: "Comment ça marche - Zépices & Soleil",
+            step: [
+              { "@type": "HowToStep", name: "Choisissez vos plats" },
+              { "@type": "HowToStep", name: "Réservez / Demandez un devis" },
+              { "@type": "HowToStep", name: "Savourez le jour J" },
+            ],
+          }),
+        }}
+      />
       <section className="max-w-5xl mx-auto px-4 py-12">
         <h3 className="text-center font-serif text-3xl text-[#FF7A1A] mb-6">
           – Le meilleur du goût est ici –

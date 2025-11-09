@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 const ContactForm = () => {
@@ -49,6 +50,26 @@ const ContactForm = () => {
 
   return (
     <section id="contact" className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Demande de devis - Zépices & Soleil",
+            description:
+              "Formulaire de contact pour demander un devis traiteur (mariage, anniversaire, entreprise).",
+            potentialAction: {
+              "@type": "SendAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://zepices-soleil.fr/api/contact",
+                httpMethod: "POST",
+              },
+            },
+          }),
+        }}
+      />
       <div className="max-w-3xl mx-auto px-6 py-12">
         <h2 className="text-center font-serif text-2xl text-emerald-900 mb-2">
           Demandez un devis personnalisé

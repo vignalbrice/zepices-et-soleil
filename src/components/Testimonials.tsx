@@ -23,8 +23,26 @@ const testimonials = [
 const Testimonials = () => {
   const mainTestimonial = useMemo(() => testimonials[0], []);
 
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "120",
+    reviews: testimonials.map((t) => ({
+      "@type": "Review",
+      author: t.name,
+      reviewBody: t.text,
+      image: t.img,
+    })),
+  };
+  const ldJson = JSON.stringify(ld);
+
   return (
     <section className="mt-10 bg-[#FF7A1A]" id="testimonials">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ldJson }}
+      />
       <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-[1.2fr,1fr] gap-8 items-center">
         <div className="text-white">
           <Quote className="opacity-70" />

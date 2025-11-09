@@ -1,3 +1,4 @@
+"use client";
 import { PHONE_NUMBER } from "@/app/constants";
 import { MenuIcon, PhoneCall } from "lucide-react";
 import React, { FC, useState } from "react";
@@ -5,8 +6,23 @@ import React, { FC, useState } from "react";
 const Navbar: FC = () => {
   const [open, setOpen] = useState(false);
 
+  // JSON-LD schema.org for the organization
+  const ldJson = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Zépices & Soleil",
+    telephone: PHONE_NUMBER,
+    // logo placed in the public/ folder
+    logo: "/banner.png",
+  });
+
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-black/5">
+      {/* schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ldJson }}
+      />
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-8 w-8 rounded-full bg-[#f99e1a] grid place-items-center text-white font-bold">

@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
@@ -40,3 +39,17 @@ export default function Page() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Zépices & Soleil — Traiteur événements, mariages & Caraïbes",
+  description:
+    "Cuisine créole pleine de soleil pour vos événements, mariages et fêtes privées. Demandez un devis rapide !",
+  openGraph: {
+    title: "Zépices & Soleil — Traiteur événements, mariages & Caraïbes",
+    description:
+      "Cuisine créole pleine de soleil pour vos événements, mariages et fêtes privées. Demandez un devis rapide !",
+    url: "https://zepices-soleil.fr",
+    siteName: "Zépices & Soleil",
+    images: ["/banner.png"],
+  },
+};

@@ -1,10 +1,27 @@
 import { Utensils } from "lucide-react";
 import Image from "next/image";
 import React, { FC } from "react";
+import { PHONE_NUMBER } from "@/app/constants";
 
 const Hero: FC = () => {
+  const ldJson = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    name: "Zépices & Soleil",
+    image: "/work/plat-7.jpeg",
+    telephone: PHONE_NUMBER,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "120",
+    },
+  });
   return (
     <section id="hero" className="relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ldJson }}
+      />
       <div className="max-w-4xl mx-auto text-center px-4 pt-12 pb-6">
         <p className="mx-auto text-[13px] inline-flex items-center gap-2 rounded-full border border-black/10 px-3 py-1">
           <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-pink-100 text-[11px] font-bold">
